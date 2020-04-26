@@ -45,6 +45,19 @@ namespace w6.Data
                         Sporty                              bit not null
                     )");
                 logger.LogInformation("created tables.");
+
+                logger.LogInformation("inserting sample users...");
+
+                logger.LogInformation("inserting user 0..");
+
+                var laura = Database.CreateUser(new User { Name = "Laura", Age = 21, Location = "Malibu", Sporty = true });
+                var adele = Database.CreateUser(new User { Name = "Adele", Age = 27, Location = "San Diego", Sporty = true });
+                var lucia = Database.CreateUser(new User { Name = "Lucia", Age = 16, Location = "New York", Sporty = false });
+
+                w6.Models.Users.CurrentUserId = adele.Id;
+
+                logger.LogInformation("inserted sample users.");
+
             }
         }
     }
@@ -80,11 +93,13 @@ namespace w6.Data
             {
                 cnn.Open();
 
-                cnn.Execute(@"
-                    insert into Users (Id, Name, Age, Location, Sporty)
-                    values (@Id, @Name, @Age, @Location, @Sporty)", user);
+                var id = cnn.ExecuteScalar<int>(@"
+                    insert into Users (Name, Age, Location, Sporty)
+                    values (@Name, @Age, @Location, @Sporty);
+                    
+                    select last_insert_rowid()", user);
 
-                return GetUser(user.Id);
+                return GetUser(id);
             }
         }
 

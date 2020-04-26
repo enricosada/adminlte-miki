@@ -2,22 +2,9 @@ using System;
 
 namespace w6.Models
 {
-    public class UserInfo
-    {
-        public string Nome { get; set; }
-        public int Eta { get; set; }
-        public bool Sportiva { get; set; }
-        public string Location { get; set; }
-    }
-
     public static class Users
     {
-        static Users()
-        {
-            CurrentUser = new UserInfo { Nome = "Laura", Eta = 21, Sportiva = false, Location = "Malibu, California" };
-        }
-
-        public static UserInfo CurrentUser { get; set; }
+        public static int CurrentUserId { get; set; }
     }
 
     public class UserInfoViewModel

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using w6.Data;
 using w6.Models;
 
 namespace w6.Controllers
@@ -20,11 +21,11 @@ namespace w6.Controllers
 
         public IActionResult Index()
         {
-            var utente = Users.CurrentUser;
+            var utente = Database.GetUser(Users.CurrentUserId);
 
             var userInfo = new UserInfoViewModel
             {
-                Nome = utente.Nome,
+                Nome = utente.Name,
                 Location = utente.Location
             };
 
@@ -33,13 +34,13 @@ namespace w6.Controllers
 
         public IActionResult Edit()
         {
-            var utente = Users.CurrentUser;
+            var utente = Database.GetUser(Users.CurrentUserId);
 
             var model = new UserEditViewModel
             {
-                Nome = utente.Nome,
-                Eta = utente.Eta,
-                Sportiva = utente.Sportiva
+                Nome = utente.Name,
+                Eta = utente.Age,
+                Sportiva = utente.Sporty
             };
 
             return View("Edit", model);
@@ -52,17 +53,19 @@ namespace w6.Controllers
             this._logger.LogInformation("eta': " + data.Eta);
             this._logger.LogInformation("sportiva: " + data.Sportiva);
 
-            Users.CurrentUser.Nome = data.Nome;
-            Users.CurrentUser.Eta = data.Eta;
-            Users.CurrentUser.Sportiva = data.Sportiva;
+            var utente = Database.GetUser(Users.CurrentUserId);
 
-            var utente = Users.CurrentUser;
+            utente.Name = data.Nome;
+            utente.Age = data.Eta;
+            utente.Sporty = data.Sportiva;
+
+            utente = Database.SaveUser(utente);
 
             var model = new UserEditViewModel
             {
-                Nome = utente.Nome,
-                Eta = utente.Eta,
-                Sportiva = utente.Sportiva,
+                Nome = utente.Name,
+                Eta = utente.Age,
+                Sportiva = utente.Sporty,
                 Salvato = true
             };
 
