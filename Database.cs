@@ -38,7 +38,8 @@ namespace w6.Data
                 cnn.Execute(
                     @"create table Users
                     (
-                        Name                                varchar identity primary key not null,
+                        Id                                  integer primary key autoincrement,
+                        Name                                varchar not null,
                         Age                                 int not null,
                         Location                            varchar not null,
                         Sporty                              bit not null
@@ -50,6 +51,7 @@ namespace w6.Data
 
     public class User
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
         public string Location { get; set; }
@@ -58,7 +60,7 @@ namespace w6.Data
 
     public static class Database
     {
-        public static User GetUser(string name)
+        public static User GetUser(int id)
         {
             using (var cnn = DatabaseInfo.DbConnection())
             {
@@ -67,7 +69,7 @@ namespace w6.Data
                 return cnn.Query<User>(@"
                     select *
                     from Users
-                    where Name = @Name", new { Name = name })
+                    where Id = @Id", new { Id = id })
                           .FirstOrDefault();
             }
         }
@@ -79,10 +81,10 @@ namespace w6.Data
                 cnn.Open();
 
                 cnn.Execute(@"
-                    insert into Users (Name, Age, Location, Sporty)
-                    values (@Name, @Age, @Location, @Sporty)", user);
+                    insert into Users (Id, Name, Age, Location, Sporty)
+                    values (@Id, @Name, @Age, @Location, @Sporty)", user);
 
-                return GetUser(user.Name);
+                return GetUser(user.Id);
             }
         }
 
@@ -94,10 +96,10 @@ namespace w6.Data
 
                 cnn.Execute(@"
                     update Users
-                    set Age = @Age, Location = @Location, Sporty = @Sporty
-                    where Name = @Name", user);
+                    set Name = @Name, Age = @Age, Location = @Location, Sporty = @Sporty
+                    where Id = @Id", user);
 
-                return GetUser(user.Name);
+                return GetUser(user.Id);
             }
         }
     }

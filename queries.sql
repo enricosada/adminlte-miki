@@ -1,4 +1,4 @@
-select Name, Age, Location, Sporty
+select *
 from Users;
 
 -- add an user
