@@ -41,7 +41,7 @@ namespace w6
                 app.UseHsts();
             }
 
-            w6.Data.Database.Create(logger);
+            w6.Data.DatabaseInfo.Create(logger);
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

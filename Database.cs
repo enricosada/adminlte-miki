@@ -7,14 +7,14 @@ using Microsoft.Extensions.Logging;
 
 namespace w6.Data
 {
-    public static class Database
+    public static class DatabaseInfo
     {
         private static string DbFile
         {
             get { return Path.Combine(Environment.CurrentDirectory, "mydb.sqlite"); }
         }
 
-        public static SQLiteConnection SimpleDbConnection()
+        public static SQLiteConnection DbConnection()
         {
             return new SQLiteConnection($"Data Source={DbFile}");
         }
@@ -28,7 +28,7 @@ namespace w6.Data
             }
 
             logger.LogInformation($"creating database '{DbFile}'...");
-            using (var cnn = SimpleDbConnection())
+            using (var cnn = DbConnection())
             {
                 cnn.Open();
 
@@ -56,11 +56,11 @@ namespace w6.Data
         public bool Sporty { get; set; }
     }
 
-    public static class Repository
+    public static class Database
     {
         public static User GetUser(string name)
         {
-            using (var cnn = Database.SimpleDbConnection())
+            using (var cnn = DatabaseInfo.DbConnection())
             {
                 cnn.Open();
 
@@ -74,7 +74,7 @@ namespace w6.Data
 
         public static User CreateUser(User user)
         {
-            using (var cnn = Database.SimpleDbConnection())
+            using (var cnn = DatabaseInfo.DbConnection())
             {
                 cnn.Open();
 
@@ -88,7 +88,7 @@ namespace w6.Data
 
         public static User SaveUser(User user)
         {
-            using (var cnn = Database.SimpleDbConnection())
+            using (var cnn = DatabaseInfo.DbConnection())
             {
                 cnn.Open();
 
