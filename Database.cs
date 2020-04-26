@@ -40,6 +40,7 @@ namespace w6.Data
                     (
                         Name                                varchar identity primary key not null,
                         Age                                 int not null,
+                        Location                            varchar not null,
                         Sporty                              bit not null
                     )");
                 logger.LogInformation("created tables.");
@@ -51,6 +52,7 @@ namespace w6.Data
     {
         public string Name { get; set; }
         public int Age { get; set; }
+        public string Location { get; set; }
         public bool Sporty { get; set; }
     }
 
@@ -77,8 +79,8 @@ namespace w6.Data
                 cnn.Open();
 
                 cnn.Execute(@"
-                    insert into Users (Name, Age, Sporty)
-                    values (@Name, @Age, @Sporty)", user);
+                    insert into Users (Name, Age, Location, Sporty)
+                    values (@Name, @Age, @Location, @Sporty)", user);
 
                 return GetUser(user.Name);
             }
@@ -92,7 +94,7 @@ namespace w6.Data
 
                 cnn.Execute(@"
                     update Users
-                    set Age = @Age, Sporty = @Sporty
+                    set Age = @Age, Location = @Location, Sporty = @Sporty
                     where Name = @Name", user);
 
                 return GetUser(user.Name);
