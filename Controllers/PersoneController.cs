@@ -29,6 +29,15 @@ namespace w6.Controllers
             {
                 Persone = persone
             };
+ 
+            return View(info);
+        }
+        public IActionResult Info(int id)
+        {
+            var info = new PersonaInfoViewModel
+            {
+                Id = id
+            };
 
             return View(info);
         }

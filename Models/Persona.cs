@@ -9,7 +9,10 @@ namespace w6.Models
         public string Cognome { get; set; }
     }
 
-
+    public class PersonaInfoViewModel
+    {
+        public int Id { get; set; }
+    }
     public class PersonaListaViewModel
     {
         public PersonaListaItemViewModel[] Persone { get; set; }
