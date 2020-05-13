@@ -20,7 +20,17 @@ namespace w6.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var persone = new[] {
+                new PersonaListaItemViewModel { Id = 1, FullName = "Enrico Sada" },
+                new PersonaListaItemViewModel { Id = 2, FullName = "Lica Rossi" },
+            };
+
+            var info = new PersonaListaViewModel
+            {
+                Persone = persone
+            };
+
+            return View(info);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
