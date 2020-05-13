@@ -14,7 +14,7 @@ namespace w6.Models
         public int Id { get; set; }
 
         public string Fullname { get; set;}
-        
+
     }
     public class PersonaListaViewModel
     {
