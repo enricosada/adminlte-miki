@@ -32,11 +32,12 @@ namespace w6.Controllers
  
             return View(info);
         }
-        public IActionResult Info(int id)
+        public IActionResult Info(int id, string fullname)
         {
             var info = new PersonaInfoViewModel
             {
-                Id = id
+                Id = id,
+                Fullname = fullname
             };
 
             return View(info);

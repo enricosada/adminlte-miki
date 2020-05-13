@@ -12,6 +12,9 @@ namespace w6.Models
     public class PersonaInfoViewModel
     {
         public int Id { get; set; }
+
+        public string Fullname { get; set;}
+        
     }
     public class PersonaListaViewModel
     {
