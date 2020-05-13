@@ -32,12 +32,19 @@ namespace w6.Controllers
  
             return View(info);
         }
-        public IActionResult Info(int id, string fullname)
+        public IActionResult Info(int id)
         {
+            var persone = new[] {
+                new PersonaListaItemViewModel { Id = 1, FullName = "Enrico Sada" },
+                new PersonaListaItemViewModel { Id = 2, FullName = "Lica Rossi" },
+            };
+
+            var persona = persone.Where(x => x.Id == id).First();
+
             var info = new PersonaInfoViewModel
             {
                 Id = id,
-                Fullname = fullname
+                Fullname = persona.FullName
             };
 
             return View(info);
