@@ -32,6 +32,7 @@ namespace w6.Models
         public int Id { get; set; }
         public string Nome{ get; set; }
         public string Cognome{ get; set; }
-        
+        public bool Salvato { get; set; }
+
     }  
 }

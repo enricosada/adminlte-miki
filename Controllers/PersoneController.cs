@@ -60,7 +60,8 @@ namespace w6.Controllers
             {
                 Id = persona.Id,
                 Nome = persona.Nome,
-                Cognome = persona.Cognome 
+                Cognome = persona.Cognome,
+                Salvato = false,
             };
 
             return View(editpersona);
@@ -74,11 +75,13 @@ namespace w6.Controllers
             persona.Nome = nome;
             persona.Cognome = cognome;
 
+
             var editpersona = new PersonaEditViewModel
             {
                 Id = persona.Id,
                 Nome = persona.Nome,
-                Cognome = persona.Cognome 
+                Cognome = persona.Cognome,
+                Salvato = true
             };
 
             return View(editpersona);

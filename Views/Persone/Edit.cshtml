@@ -1,5 +1,14 @@
 @model w6.Models.PersonaEditViewModel
 
+@if(Model.Salvato)
+{
+    <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i> Salvato!</h4>
+                
+    </div>
+}
+
 <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">Compila con i tuoi dati</h3>
