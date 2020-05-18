@@ -3,3 +3,10 @@
 Id: @Model.Id
 
 Nome: @Model.Fullname
+
+<a class="btn btn-app"
+   asp-controller="Persone"
+   asp-action="Edit"
+   asp-route-id="@Model.Id">
+    <i class="fa fa-edit"></i> Modifica
+</a>

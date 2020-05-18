@@ -25,5 +25,13 @@ namespace w6.Models
     {
         public int Id { get; set; }
         public string FullName { get; set; }
-    }    
+    }  
+
+    public class PersonaEditViewModel
+    {
+        public int Id { get; set; }
+        public string Nome{ get; set; }
+        public string Cognome{ get; set; }
+        
+    }  
 }

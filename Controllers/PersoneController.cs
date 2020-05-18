@@ -38,7 +38,7 @@ namespace w6.Controllers
  
             return View(info);
         }
-        
+
         public IActionResult Info(int id)
         {
             var persona = Database.Persone.Where(x => x.Id == id).First();
@@ -50,6 +50,20 @@ namespace w6.Controllers
             };
 
             return View(info);
+        }
+
+        public IActionResult Edit(int id) 
+        {
+            var persona = Database.Persone.Where(x => x.Id == id).First();
+
+            var editpersona = new PersonaEditViewModel
+            {
+                Id = persona.Id,
+                Nome = persona.Nome,
+                Cognome = persona.Cognome 
+            };
+
+            return View(editpersona);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
