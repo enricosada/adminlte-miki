@@ -18,13 +18,19 @@ namespace w6.Controllers
             _logger = logger; 
         }
 
+        public static PersonaListaItemViewModel GetListaItem (Persona p)
+        {
+            var i = new PersonaListaItemViewModel();
+            i.Id = p.Id;
+            i.FullName = p.Nome + " " + p.Cognome;
+
+            return i;
+        }
+
         public IActionResult Index()
         {
-            var persone = new[] {
-                new PersonaListaItemViewModel { Id = 1, FullName = "Enrico Sada" },
-                new PersonaListaItemViewModel { Id = 2, FullName = "Lica Rossi" },
-            };
-
+            var persone = Database.Persone.Select(x => GetListaItem(x)).ToArray();
+           
             var info = new PersonaListaViewModel
             {
                 Persone = persone
@@ -32,19 +38,15 @@ namespace w6.Controllers
  
             return View(info);
         }
+        
         public IActionResult Info(int id)
         {
-            var persone = new[] {
-                new PersonaListaItemViewModel { Id = 1, FullName = "Enrico Sada" },
-                new PersonaListaItemViewModel { Id = 2, FullName = "Lica Rossi" },
-            };
-
-            var persona = persone.Where(x => x.Id == id).First();
+            var persona = Database.Persone.Where(x => x.Id == id).First();
 
             var info = new PersonaInfoViewModel
             {
                 Id = id,
-                Fullname = persona.FullName
+                Fullname = persona.Nome + " " + persona.Cognome
             };
 
             return View(info);
