@@ -66,6 +66,24 @@ namespace w6.Controllers
             return View(editpersona);
         }
 
+        [HttpPost]
+        public IActionResult Edit(int id, string nome, string cognome) 
+        {
+            var persona = Database.Persone.Where(x => x.Id == id).First();
+
+            persona.Nome = nome;
+            persona.Cognome = cognome;
+
+            var editpersona = new PersonaEditViewModel
+            {
+                Id = persona.Id,
+                Nome = persona.Nome,
+                Cognome = persona.Cognome 
+            };
+
+            return View(editpersona);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
