@@ -35,4 +35,6 @@ namespace w6.Models
         public bool Salvato { get; set; }
 
     }  
+
+    
 }

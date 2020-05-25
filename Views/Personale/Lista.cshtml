@@ -1,0 +1,28 @@
+@model w6.Models.PersonaleListaViewModel
+
+<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Lista Personale</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tbody><tr>
+                  <th>ID</th>
+                  <th>Nome</th>
+                  <th>Data di Assunzione</th>
+                </tr>
+               
+                @foreach (var persona in Model.Persone)
+                {
+                    <tr>
+                <td>@persona.Id</td>
+                <td>@persona.Nome</td>
+                <td>@persona.Datahire.ToShortDateString()</td>
+                </tr>
+                }
+                
+              </tbody></table>
+            </div>
+            <!-- /.box-body -->
+          </div>

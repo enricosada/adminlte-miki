@@ -337,13 +337,25 @@
 
                 <li class="treeview active menu-open">
           <a href="https://adminlte.io/themes/AdminLTE/pages/forms/general.html#">
-            <i class="fa fa-edit"></i> <span>Persone</span>
+            <i class="fa fa-edit"></i> <span>Ospiti</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="@Url.Action("Index", "Persone")"><i class="fa fa-circle-o"></i> Lista</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview active menu-open" style="height: auto;">
+          <a href="https://adminlte.io/themes/AdminLTE/pages/forms/general.html#">
+            <i class="fa fa-edit"></i> <span>Personale</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu" style="">
+            <li class="active"><a href="@Url.Action("Lista", "Personale")"><i class="fa fa-circle-o"></i> Lista</a></li>
           </ul>
         </li>
 
@@ -375,6 +387,9 @@
             <li><a href="https://adminlte.io/themes/AdminLTE/pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
           </ul>
         </li>
+
+        
+
         <li>
           <a href="https://adminlte.io/themes/AdminLTE/pages/widgets.html">
             <i class="fa fa-th"></i> <span>Widgets</span>

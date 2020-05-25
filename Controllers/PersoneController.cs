@@ -67,6 +67,7 @@ namespace w6.Controllers
             return View(editpersona);
         }
 
+       
         [HttpPost]
         public IActionResult Edit(int id, string nome, string cognome) 
         {

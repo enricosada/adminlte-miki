@@ -3,7 +3,7 @@ using w6.Models;
 
 namespace w6
 {
-    public class Database
+    public class Database 
     {
         public static List<Persona> Persone = new List<Persona>()
                                                 {
