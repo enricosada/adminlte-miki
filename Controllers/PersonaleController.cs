@@ -40,6 +40,8 @@ namespace w6.Controllers
                 Persone = new[] { item1, item2 }
             };
 
+            
+
             return View(lista);
         }
     
