@@ -31,13 +31,20 @@ namespace w6.Controllers
             var item2= new PersonaleListaItemViewModel    
             {
                 Id = 2,
+                Nome = "Samuele",
+                Datahire = new DateTime(2018, 09, 12), 
+            };
+
+            var item3= new PersonaleListaItemViewModel    
+            {
+                Id = 3,
                 Nome = "Giulia",
                 Datahire = new DateTime(2015, 07, 12), 
-            };
+            }; 
 
             var lista = new PersonaleListaViewModel
             {
-                Persone = new[] { item1, item2 }
+                Persone = new[] { item1, item2, item3 }
             };
 
             
