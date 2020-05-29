@@ -11,7 +11,7 @@ namespace w6.Controllers
 {
     public class PersonaleController : Controller
     {
-        private readonly ILogger<PersonaleController> _logger;
+        private readonly ILogger<PersonaleController> _logger; 
 
         public PersonaleController(ILogger<PersonaleController> logger)
         {
