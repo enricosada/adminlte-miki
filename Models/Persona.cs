@@ -7,6 +7,12 @@ namespace w6.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Cognome { get; set; }
+        public string Inserimento{ get; set; }
+        public string Documento{ get; set; }
+        public string Servizi{ get; set; }
+        public string Tutore{ get; set; }
+        public string Sanitario{ get; set; }
+        public string Dimissione{ get; set; }
     }
 
     public class PersonaInfoViewModel
@@ -14,6 +20,12 @@ namespace w6.Models
         public int Id { get; set; }
 
         public string Fullname { get; set;}
+        public string Inserimento{ get; set; }
+        public string Documento{ get; set; }
+        public string Servizi{ get; set; }
+        public string Tutore{ get; set; }
+        public string Sanitario{ get; set; }
+        public string Dimissione{ get; set; }
 
     }
     public class PersonaListaViewModel
@@ -25,6 +37,12 @@ namespace w6.Models
     {
         public int Id { get; set; }
         public string FullName { get; set; }
+        public string Inserimento{ get; set; }
+        public string Documento{ get; set; }
+        public string Servizi{ get; set; }
+        public string Tutore{ get; set; }
+        public string Sanitario{ get; set; }
+        public string Dimissione{ get; set; }
     }  
 
     public class PersonaEditViewModel
@@ -32,6 +50,12 @@ namespace w6.Models
         public int Id { get; set; }
         public string Nome{ get; set; }
         public string Cognome{ get; set; }
+        public string Inserimento{ get; set; }
+        public string Documento{ get; set; }
+        public string Servizi{ get; set; }
+        public string Tutore{ get; set; }
+        public string Sanitario{ get; set; }
+        public string Dimissione{ get; set; }
         public bool Salvato { get; set; }
 
     }  

@@ -12,6 +12,12 @@
                 <tbody><tr>
                   <th style="width: 10px">Id</th>
                   <th>Nome Completo</th>
+                  <th>Inserimento</th>
+                  <th>Documento</th>
+                  <th>Servizi Sociali</th>
+                  <th>Tutore</th>
+                  <th>Tipo di documento Sanitario</th>
+                  <th>Dimissione</th>
                 </tr>
                 @foreach (var item in Model.Persone)
                 {
@@ -21,6 +27,12 @@
                             <a href="@Url.Action("Info", "Persone", new { id = item.Id }  )">@item.FullName</a>
                              
                         </td>
+                        <td>@item.Inserimento</td>
+                        <td>@item.Documento</td>
+                        <td>@item.Servizi</td>
+                        <td>@item.Tutore</td>
+                        <td>@item.Sanitario</td>
+                        <td>@item.Dimissione</td>
                          
                      </tr>
                 }
