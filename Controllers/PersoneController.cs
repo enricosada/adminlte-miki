@@ -23,12 +23,12 @@ namespace w6.Controllers
             var i = new PersonaListaItemViewModel();
             i.Id = p.Id;
             i.FullName = p.Nome + " " + p.Cognome;
-            i.Inserimento = p.Inserimento;
+            i.Inserimento = p.Inserimento.ToShortDateString();
             i.Documento = p.Documento;
             i.Servizi = p.Servizi;
             i.Tutore = p.Tutore;
             i.Sanitario = p.Sanitario;
-            i.Dimissione = p.Dimissione;
+            i.Dimissione = p.Dimissione.ToString();
 
             return i;
         }
@@ -53,14 +53,12 @@ namespace w6.Controllers
             {
                 Id = id,
                 Fullname = persona.Nome + " " + persona.Cognome,
-                Inserimento = persona.Inserimento,
+                Inserimento = persona.Inserimento.ToShortDateString(),
                 Documento = persona.Documento,
                 Servizi = persona.Servizi,
                 Tutore = persona.Tutore,
                 Sanitario = persona.Sanitario,
-                Dimissione = persona.Dimissione,
-
-
+                Dimissione = persona.Dimissione.ToString(),
             };
 
             return View(info);
@@ -75,12 +73,12 @@ namespace w6.Controllers
                 Id = persona.Id,
                 Nome = persona.Nome,
                 Cognome = persona.Cognome,
-                Inserimento = persona.Inserimento,
+                Inserimento = persona.Inserimento.ToShortDateString(),
                 Documento = persona.Documento,
                 Servizi = persona.Servizi,
                 Tutore = persona.Tutore,
                 Sanitario = persona.Sanitario,
-                Dimissione = persona.Dimissione,
+                Dimissione = persona.Dimissione.ToString(),
                 Salvato = false,
             };
 
@@ -89,13 +87,13 @@ namespace w6.Controllers
 
        
         [HttpPost]
-        public IActionResult Edit(int id,string nome, string cognome, DateTime inserimento, string documento, string servizi, string tutore, string sanitario, string dimissione) 
+        public IActionResult Edit(int id,string nome, string cognome, DateTime inserimento, string documento, string servizi, string tutore, string sanitario, bool dimissione) 
         {
             var persona = Database.Persone.Where(x => x.Id == id).First();
 
             persona.Nome = nome; 
             persona.Cognome = cognome;
-            persona.Inserimento = inserimento.ToString();
+            persona.Inserimento = inserimento;
             persona.Documento = documento;
             persona.Servizi = persona.Servizi;
             persona.Tutore = persona.Tutore;
@@ -109,12 +107,12 @@ namespace w6.Controllers
                 Id = persona.Id,
                 Nome = persona.Nome,
                 Cognome = persona.Cognome,
-                Inserimento = persona.Inserimento,
+                Inserimento = persona.Inserimento.ToShortDateString(),
                 Documento = persona.Documento,
                 Servizi = persona.Servizi,
                 Tutore = persona.Tutore,
                 Sanitario = persona.Sanitario,
-                Dimissione = persona.Dimissione,
+                Dimissione = persona.Dimissione.ToString(),
                 Salvato = true
             };
 
