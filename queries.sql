@@ -51,3 +51,16 @@ create table Macchine
     Name                                varchar identity primary key not null,
     UserID                              datetime not null
 )
+
+create table Persona
+(
+    Id int,
+    Nome varchar,
+    Cognome varchar,
+    Inserimento datetime,
+    Documento varchar,
+    Servizi varchar,
+    Tutore varchar,
+    Sanitario varchar,
+    Dimissione bit,
+)

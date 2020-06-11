@@ -53,53 +53,67 @@ namespace w6.Data
                 cnn.Execute(
                     @"create table Users
                     (
-                        Name                                varchar identity primary key not null,
-                        Age                                 int not null,
-                        Sporty                              bit not null
+                        ID                                 int not null 
+                        Nome                               varchar identity primary key not null,
+                        Cognome                            varchar not null,
+                        Inserimento                        datetime not null, 
+                        Documento                          varchar,
+                        Servizi                            varchar,
+                        Tutore                             varchar,
+                        Tessera Sanitaria                  varchar,
+                        Codice STP                         varchar, 
+                        Dimissione                         bit not null
                     )");
                 logger.LogInformation("created tables.");
             }
         }
     }
 
-    public class User
+    public class Utente
     {
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public bool Sporty { get; set; }
+       public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Cognome { get; set; }
+        public DateTime Inserimento{ get; set; }
+        public string Documento{ get; set; }
+        public string Servizi{ get; set; }
+        public string Tutore{ get; set; }
+        public string Sanitaria { get; set; }
+        public string STP {get ; set; }
+        public bool Dimissione{ get; set; }
     }
 
     public static class Repository
     {
-        public static User GetUser(string name)
+        public static Utente GetUser(string name)
         {
             using (var cnn = Database.SimpleDbConnection())
             {
                 cnn.Open();
 
-                return cnn.Query<User>(@"
+                return cnn.Query<Utente>(@"
                     select *
                     from Users
-                    where Name = @Name", new { Name = name })
+                    where Name = @Nome", new { Nome = name })
                           .FirstOrDefault();
             }
         }
 
-        public static User CreateUser(User user)
+        public static Utente CreateUser(Utente user)
         {
             using (var cnn = Database.SimpleDbConnection())
             {
                 cnn.Open();
 
                 cnn.Execute(@"
-                    insert into Users (Name, Age, Sporty)
-                    values (@Name, @Age, @Sporty)", user);
+                    insert into Users (Id, Nome, Cognome, Inserimento, Documento, Servizi, Tutore, Sanitaria, STP, Dimissione)
+                    values (@ID, @Nome, @Cognome, @Inserimento, @Documento, @Servizi, @tutore, @Sanitaria, @STP, @Dimissione)", user);
 
-                return GetUser(user.Name);
+                return GetUser(user.Nome);
             }
         }
 
-        public static User SaveUser(User user)
+        public static Utente SaveUser(Utente user)
         {
             using (var cnn = Database.SimpleDbConnection())
             {
@@ -110,7 +124,7 @@ namespace w6.Data
                     set Age = @Age, Sporty = @Sporty
                     where Name = @Name", user);
 
-                return GetUser(user.Name);
+                return GetUser(user.Nome);
             }
         }
     }

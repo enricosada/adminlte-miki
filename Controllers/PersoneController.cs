@@ -11,7 +11,7 @@ namespace w6.Controllers
 {
     public class PersoneController : Controller
     {
-        private readonly ILogger<PersoneController> _logger;  
+        private readonly ILogger<PersoneController> _logger;   
 
         public PersoneController(ILogger<PersoneController> logger)
         {
@@ -107,7 +107,7 @@ namespace w6.Controllers
                 Id = persona.Id,
                 Nome = persona.Nome,
                 Cognome = persona.Cognome,
-                Inserimento = persona.Inserimento.ToShortDateString(),
+                Inserimento = persona.Inserimento.ToShortDateString(), 
                 Documento = persona.Documento,
                 Servizi = persona.Servizi,
                 Tutore = persona.Tutore,
