@@ -16,7 +16,11 @@
                   <th>Documento</th>
                   <th>Servizi Sociali</th>
                   <th>Tutore</th>
-                  <th>Tipo di documento Sanitario</th>
+                  <th>Tessera Sanitaria</th>
+                  <th>Codice STP</th>
+                  <th>Dimissione</th>
+                  <th>Allontanamento</th>
+                  <th>Inserimento</th>
                   <th>Dimissione</th>
                 </tr>
                 @foreach (var item in Model.Persone)
@@ -33,7 +37,10 @@
                         <td>@item.Tutore</td>
                         <td>@item.Sanitario</td>
                         <td>@item.Dimissione</td>
-                         
+                        <td><button style="font-size:24px"> 🏃 <i class="fas fa-running" aria-hidden="true"></i></button></td>
+                        <td><button style="font-size:24px"> 🆕 <i class="fas fa-running" aria-hidden="true"></i></button></td>
+                        <td><button style="font-size:24px"> 🔚 <i class="fas fa-running" aria-hidden="true"></i></button></td>
+                       
                      </tr>
                 }
               </tbody></table>
