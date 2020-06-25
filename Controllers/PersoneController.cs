@@ -18,6 +18,14 @@ namespace w6.Controllers
             _logger = logger; 
         }
 
+        public ActionResult Mio()
+        {
+            byte[] data = System.IO.File.ReadAllBytes(@"C:\Users\Miche\Downloads\Doc1.docx");
+
+            return File(data, "application/vnd.openxmlformats-officedocuments.wordprocessingml.document","Doc1.docx");
+        }
+        
+
         public static PersonaListaItemViewModel GetListaItem (Persona p)
         {
             var i = new PersonaListaItemViewModel();
