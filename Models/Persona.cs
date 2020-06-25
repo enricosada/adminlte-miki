@@ -12,6 +12,7 @@ namespace w6.Models
         public string Servizi{ get; set; }
         public string Tutore{ get; set; }
         public string Sanitario{ get; set; }
+        public string Stp { get; set; }
         public bool Dimissione{ get; set; }
     }
 
@@ -25,6 +26,7 @@ namespace w6.Models
         public string Servizi{ get; set; }
         public string Tutore{ get; set; }
         public string Sanitario{ get; set; }
+        public string Stp { get; set; }
         public string Dimissione{ get; set; }
 
     }
@@ -42,6 +44,7 @@ namespace w6.Models
         public string Servizi{ get; set; }
         public string Tutore{ get; set; }
         public string Sanitario{ get; set; }
+        public string Stp { get; set; }
         public string Dimissione{ get; set; }
     }  
 
@@ -55,6 +58,7 @@ namespace w6.Models
         public string Servizi{ get; set; }
         public string Tutore{ get; set; }
         public string Sanitario{ get; set; }
+        public string Stp { get; set; }
         public string Dimissione{ get; set; }
         public bool Salvato { get; set; }
 

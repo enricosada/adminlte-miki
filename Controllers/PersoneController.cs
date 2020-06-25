@@ -28,6 +28,7 @@ namespace w6.Controllers
             i.Servizi = p.Servizi;
             i.Tutore = p.Tutore;
             i.Sanitario = p.Sanitario;
+            i.Stp = p.Stp;
             i.Dimissione = p.Dimissione.ToString();
 
             return i;
@@ -58,6 +59,7 @@ namespace w6.Controllers
                 Servizi = persona.Servizi,
                 Tutore = persona.Tutore,
                 Sanitario = persona.Sanitario,
+                Stp = persona.Stp,
                 Dimissione = persona.Dimissione.ToString(),
             };
 
@@ -78,6 +80,7 @@ namespace w6.Controllers
                 Servizi = persona.Servizi,
                 Tutore = persona.Tutore,
                 Sanitario = persona.Sanitario,
+                Stp = persona.Stp,
                 Dimissione = persona.Dimissione.ToString(),
                 Salvato = false,
             };
@@ -87,7 +90,7 @@ namespace w6.Controllers
 
        
         [HttpPost]
-        public IActionResult Edit(int id,string nome, string cognome, DateTime inserimento, string documento, string servizi, string tutore, string sanitario, bool dimissione) 
+        public IActionResult Edit(int id,string nome, string cognome, DateTime inserimento, string documento, string servizi, string tutore, string sanitario, string stp, bool dimissione) 
         {
             var persona = Database.Persone.Where(x => x.Id == id).First();
 
@@ -95,10 +98,11 @@ namespace w6.Controllers
             persona.Cognome = cognome;
             persona.Inserimento = inserimento;
             persona.Documento = documento;
-            persona.Servizi = persona.Servizi;
-            persona.Tutore = persona.Tutore;
-            persona.Sanitario = persona.Sanitario;
-            persona.Dimissione = persona.Dimissione;
+            persona.Servizi = servizi;
+            persona.Tutore = tutore;
+            persona.Sanitario = sanitario;
+            persona.Stp = stp;
+            persona.Dimissione = dimissione;
 
 
 
@@ -112,6 +116,7 @@ namespace w6.Controllers
                 Servizi = persona.Servizi,
                 Tutore = persona.Tutore,
                 Sanitario = persona.Sanitario,
+                Stp = persona.Stp,
                 Dimissione = persona.Dimissione.ToString(),
                 Salvato = true
             };

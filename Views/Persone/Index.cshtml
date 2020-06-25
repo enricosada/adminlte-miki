@@ -21,7 +21,7 @@
                   <th>Dimissione</th>
                   <th>Allontanamento</th>
                   <th>Inserimento</th>
-                  <th>Dimissione</th>
+                  <th>Effettua Dimissione</th>
                 </tr>
                 @foreach (var item in Model.Persone)
                 {
@@ -36,10 +36,11 @@
                         <td>@item.Servizi</td>
                         <td>@item.Tutore</td>
                         <td>@item.Sanitario</td>
+                        <td>@item.Stp</td> 
                         <td>@item.Dimissione</td>
-                        <td><button style="font-size:24px"> 🏃 <i class="fas fa-running" aria-hidden="true"></i></button></td>
-                        <td><button style="font-size:24px"> 🆕 <i class="fas fa-running" aria-hidden="true"></i></button></td>
-                        <td><button style="font-size:24px"> 🔚 <i class="fas fa-running" aria-hidden="true"></i></button></td>
+                        <td align="center"><button style="font-size:24px"> 🏃 <i class="fas fa-running" aria-hidden="true"></i></button></td>
+                        <td align="center"><button style="font-size:24px"> 🆕 <i class="fas fa-running" aria-hidden="true"></i></button></td>
+                        <td align="center"><button style="font-size:24px"> 🔚 <i class="fas fa-running" aria-hidden="true"></i></button></td>
                        
                      </tr>
                 }
