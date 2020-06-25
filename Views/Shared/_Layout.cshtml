@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="~/files/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="~/files/ionicons.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="~/files/icheck.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="~/files/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -540,10 +542,23 @@
 <script src="~/files/bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="~/files/fastclick.js"></script>
+<!-- iCheck -->
+<script src="~/files/icheck.min.js"></script>
 <!-- AdminLTE App -->
 <script src="~/files/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="~/files/demo.js"></script>
+
+<script>
+  $(function () {
+    console.log("ciao");
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].flat-green, input[type="radio"].flat-green').iCheck({
+      checkboxClass: 'icheckbox_flat-green',
+      radioClass   : 'iradio_flat-green'
+    })
+  })
+</script>
 
 
 </body></html>

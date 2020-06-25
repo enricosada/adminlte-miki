@@ -59,7 +59,7 @@ namespace w6.Models
         public string Tutore{ get; set; }
         public string Sanitario{ get; set; }
         public string Stp { get; set; }
-        public string Dimissione{ get; set; }
+        public bool Dimissione{ get; set; }
         public bool Salvato { get; set; }
 
     }  

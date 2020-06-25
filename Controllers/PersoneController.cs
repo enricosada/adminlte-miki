@@ -89,7 +89,7 @@ namespace w6.Controllers
                 Tutore = persona.Tutore,
                 Sanitario = persona.Sanitario,
                 Stp = persona.Stp,
-                Dimissione = persona.Dimissione.ToString(),
+                Dimissione = persona.Dimissione,
                 Salvato = false,
             };
 
@@ -125,7 +125,7 @@ namespace w6.Controllers
                 Tutore = persona.Tutore,
                 Sanitario = persona.Sanitario,
                 Stp = persona.Stp,
-                Dimissione = persona.Dimissione.ToString(),
+                Dimissione = persona.Dimissione,
                 Salvato = true
             };
 
