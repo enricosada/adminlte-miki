@@ -38,19 +38,79 @@ insert into Users (Name, Age, Sporty)
 values ('Luca', 21, true)
 
 
+insert into Macchine (Name, UserId, Altro)
+values ('Alfa3', 'SILVIA3', 1)
+
+
+
+insert into Macchine (Name)
+values ('BMW')
+
+UPDATE MACCHINE
+Set UserId = 'FRA'
+WHERE ID = 5 OR ID = 7
+
+WHERE Name = 'BMW' AND UserId = 'MARCO'
+
+
+SELECT * FROM Macchine
+LIMIT 2  OFFSET 5;
+
+
+-- WHERE Name = 'BMW'
+-- ORDER BY UserId ASC
+
+DELETE FROM Macchine
+WHERE Name = 'BMW' AND UserID = 'enrico'
+
+
+
+
+PRAGMA table_info(Macchine)
+
+
+PRAGMA foreign_keys = ON
+
+PRAGMA foreign_keys
+
 insert into Macchine (Name, UserId)
-values ('Alfa', 1)
+values ('ALFA', NULL)
 
+SELECT * FROM Macchine
 
-
-insert into Macchine (Name, UserId)
-values ('BMW', 1)
+drop table Macchine
 
 create table Macchine
 (
-    Name                                varchar identity primary key not null,
-    UserID                              datetime not null
+    Id       integer PRIMARY KEY AUTOINCREMENT,
+    Name     varchar not null,
+    UserID   int NULL,
+    FOREIGN KEY(UserID) REFERENCES Persona(Nome)
 )
+
+
+drop table Persona
+
+create table Persona
+(
+    Nome int PRIMARY KEY
+)
+
+SELECT * FROM PERSONA
+
+INSERT INTO Persona (Nome) VALUES (1);
+INSERT INTO Persona (Nome) VALUES (5);
+INSERT INTO Persona (Nome) VALUES (8);
+
+
+
+
+DROP TABLE Macchine
+
+ALTER TABLE Macchine
+ADD COLUMN Altro INT UNIQUE
+
+PRAGMA table_info(Macchine)
 
 create table Persona
 (
@@ -62,5 +122,5 @@ create table Persona
     Servizi varchar,
     Tutore varchar,
     Sanitario varchar,
-    Dimissione bit,
+    Dimissione bit
 )

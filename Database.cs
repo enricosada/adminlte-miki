@@ -71,7 +71,7 @@ namespace w6.Data
 
     public class Utente
     {
-       public int Id { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Cognome { get; set; }
         public DateTime Inserimento{ get; set; }
@@ -83,8 +83,25 @@ namespace w6.Data
         public bool Dimissione{ get; set; }
     }
 
+    public class Macchina
+    {
+        public int Id {get;set;}
+        public string Name {get;set;}
+        public int? UserId { get; set;} 
+    }
+
     public static class Repository
     {
+        public static Macchina[] GetMacchine()
+        {
+            using (var cnn = Database.SimpleDbConnection())
+            {
+                cnn.Open();
+
+                return cnn.Query<Macchina>(@"Select * FROM Macchine").ToArray();
+            }
+        }
+
         public static Utente GetUser(string name)
         {
             using (var cnn = Database.SimpleDbConnection())

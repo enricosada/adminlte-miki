@@ -44,13 +44,16 @@ namespace w6.Controllers
 
         public IActionResult Index()
         {
-            var persone = Database.Persone.Select(x => GetListaItem(x)).ToArray();
+            // prendo fuori i dati
+            var persone = Database.Persone;
            
+            // li trasformo in una classe comoda per la view
             var info = new PersonaListaViewModel
             {
-                Persone = persone
+                Persone = persone.Select(x => GetListaItem(x)).ToArray()
             };
  
+            // ritorno la view in base alle info
             return View(info);
         }
 
